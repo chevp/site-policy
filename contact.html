@@ -105,8 +105,9 @@
     </ul>
 
     <footer>
-      &copy; 2024 Patrice Chevillat. All rights reserved.
+      &copy; <span id="year"></span> Patrice Chevillat. All rights reserved.
     </footer>
   </div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

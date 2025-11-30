@@ -123,8 +123,9 @@
     <p>For questions about this Privacy Policy or to exercise your rights, please visit our <a href="contact.html">contact page</a>.</p>
 
     <footer>
-      &copy; 2024 Patrice Chevillat. All rights reserved.
+      &copy; <span id="year"></span> Patrice Chevillat. All rights reserved.
     </footer>
   </div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
