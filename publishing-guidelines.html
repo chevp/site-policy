@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publishing Guidelines - Cryo Lab Marketplace</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #f8fafc;
+    }
+    .last-updated {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #f8fafc;
+    }
+    h3 {
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #f1f5f9;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+    }
+    ul, ol {
+      margin: 1rem 0 1rem 2rem;
+      color: #cbd5e1;
+    }
+    li { margin-bottom: 0.5rem; }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #94a3b8;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .tip {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 4px solid #22c55e;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .tip p { margin: 0; color: #86efac; }
+    .warning {
+      background: rgba(251, 191, 36, 0.1);
+      border-left: 4px solid #fbbf24;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .warning p { margin: 0; color: #fcd34d; }
+    .error {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .error p { margin: 0; color: #fca5a5; }
+    code {
+      background: rgba(0,0,0,0.3);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.875rem;
+    }
+    pre {
+      background: rgba(0,0,0,0.3);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    .checklist {
+      list-style: none;
+      margin-left: 0;
+    }
+    .checklist li {
+      padding-left: 1.75rem;
+      position: relative;
+    }
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">&larr; Back to Site Policy</a>
+    <span class="badge">Cryo Lab Marketplace</span>
+    <h1>Publishing Guidelines</h1>
+    <p class="last-updated">Last updated: November 2024</p>
+
+    <p>These guidelines help ensure that all Packages on the Cryo Lab Marketplace maintain high quality standards and provide value to the community. Please read them carefully before publishing.</p>
+
+    <h2>1. Package Naming</h2>
+    <h3>1.1 Naming Convention</h3>
+    <p>All packages must follow the naming convention:</p>
+    <ul>
+      <li>Must start with the <code>cryo-</code> prefix</li>
+      <li>Use lowercase letters, numbers, and hyphens only</li>
+      <li>Be descriptive and indicate the package's purpose</li>
+      <li>Maximum 50 characters</li>
+    </ul>
+
+    <div class="tip">
+      <p><strong>Good examples:</strong> cryo-shader-utils, cryo-scene-graph, cryo-texture-loader</p>
+    </div>
+
+    <div class="error">
+      <p><strong>Bad examples:</strong> my-module, CryoUtils, cryo_shader, cryo-awesome-super-mega-ultra-module-v2</p>
+    </div>
+
+    <h3>1.2 Reserved Names</h3>
+    <p>The following name patterns are reserved:</p>
+    <ul>
+      <li><code>cryo-core-*</code> - Reserved for official core modules</li>
+      <li><code>cryo-official-*</code> - Reserved for official packages</li>
+      <li><code>cryo-lab-*</code> - Reserved for Cryo Lab system packages</li>
+    </ul>
+
+    <h2>2. Package Structure</h2>
+    <h3>2.1 Required Files</h3>
+    <p>Every package must include:</p>
+    <ul class="checklist">
+      <li><code>package.json</code> with valid metadata</li>
+      <li><code>README.md</code> with documentation</li>
+      <li><code>LICENSE</code> file with your chosen license</li>
+      <li>Main entry point (as specified in package.json)</li>
+    </ul>
+
+    <h3>2.2 package.json Requirements</h3>
+    <p>Your package.json must include:</p>
+    <pre><code>{
+  "name": "cryo-your-module",
+  "version": "1.0.0",
+  "description": "A clear, concise description",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Your Name",
+  "keywords": ["cryo-lab", "your", "keywords"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/repo"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "cryo-lab": "^1.0.0"
+  }
+}</code></pre>
+
+    <h3>2.3 Recommended Structure</h3>
+    <pre><code>cryo-your-module/
+├── src/
+│   ├── index.ts
+│   └── ...
+├── dist/
+│   ├── index.js
+│   └── index.d.ts
+├── tests/
+│   └── ...
+├── package.json
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+└── tsconfig.json</code></pre>
+
+    <h2>3. Documentation Requirements</h2>
+    <h3>3.1 README.md</h3>
+    <p>Your README must include:</p>
+    <ul class="checklist">
+      <li>Package name and brief description</li>
+      <li>Installation instructions</li>
+      <li>Basic usage examples with code</li>
+      <li>API documentation or link to docs</li>
+      <li>Cryo Lab version compatibility</li>
+      <li>License information</li>
+    </ul>
+
+    <h3>3.2 Code Comments</h3>
+    <p>For TypeScript packages:</p>
+    <ul>
+      <li>Use JSDoc comments for all public APIs</li>
+      <li>Include type definitions (.d.ts files)</li>
+      <li>Document parameters, return values, and exceptions</li>
+    </ul>
+
+    <h2>4. Code Quality Standards</h2>
+    <h3>4.1 General Requirements</h3>
+    <ul>
+      <li>Code must be functional and tested</li>
+      <li>No syntax errors or runtime crashes</li>
+      <li>Follow consistent coding style (ESLint recommended)</li>
+      <li>Use TypeScript for type safety (strongly recommended)</li>
+    </ul>
+
+    <h3>4.2 Security Requirements</h3>
+    <ul>
+      <li>No hardcoded credentials or secrets</li>
+      <li>No network requests without user consent disclosure</li>
+      <li>No file system access outside designated directories</li>
+      <li>No execution of arbitrary code from external sources</li>
+      <li>Dependencies must be from trusted sources</li>
+    </ul>
+
+    <div class="warning">
+      <p><strong>Security Note:</strong> Packages with security vulnerabilities will be immediately unpublished. Repeated violations may result in account suspension.</p>
+    </div>
+
+    <h3>4.3 Performance Guidelines</h3>
+    <ul>
+      <li>Optimize for Cryo Lab's real-time rendering environment</li>
+      <li>Avoid blocking operations in render loops</li>
+      <li>Use async/await for I/O operations</li>
+      <li>Minimize memory allocations in hot paths</li>
+      <li>Document performance characteristics</li>
+    </ul>
+
+    <h2>5. Versioning</h2>
+    <h3>5.1 Semantic Versioning</h3>
+    <p>All packages must follow <a href="https://semver.org/" target="_blank">Semantic Versioning</a>:</p>
+    <ul>
+      <li><strong>MAJOR</strong> (1.x.x): Breaking changes</li>
+      <li><strong>MINOR</strong> (x.1.x): New features, backward compatible</li>
+      <li><strong>PATCH</strong> (x.x.1): Bug fixes, backward compatible</li>
+    </ul>
+
+    <h3>5.2 Pre-release Versions</h3>
+    <p>Use pre-release identifiers for unstable versions:</p>
+    <ul>
+      <li><code>1.0.0-alpha.1</code> - Early development</li>
+      <li><code>1.0.0-beta.1</code> - Feature complete, testing</li>
+      <li><code>1.0.0-rc.1</code> - Release candidate</li>
+    </ul>
+
+    <h3>5.3 Changelog</h3>
+    <p>Maintain a CHANGELOG.md file documenting all changes between versions.</p>
+
+    <h2>6. Vue.js Project Guidelines</h2>
+    <h3>6.1 Structure</h3>
+    <p>Vue.js projects should follow Vue 3 best practices:</p>
+    <ul>
+      <li>Use Composition API</li>
+      <li>Include TypeScript support</li>
+      <li>Provide props/emits documentation</li>
+      <li>Support both light and dark themes (matching Cryo Lab)</li>
+    </ul>
+
+    <h3>6.2 Styling</h3>
+    <ul>
+      <li>Use scoped styles to avoid conflicts</li>
+      <li>Follow the Cryo Lab design system where applicable</li>
+      <li>Support CSS custom properties for theming</li>
+    </ul>
+
+    <h2>7. Dependencies</h2>
+    <h3>7.1 Dependency Guidelines</h3>
+    <ul>
+      <li>Minimize the number of dependencies</li>
+      <li>Use only well-maintained, trusted packages</li>
+      <li>Pin dependency versions appropriately</li>
+      <li>Regularly update dependencies for security</li>
+    </ul>
+
+    <h3>7.2 Peer Dependencies</h3>
+    <p>Use peer dependencies for:</p>
+    <ul>
+      <li>Cryo Lab core packages</li>
+      <li>Vue.js (for Vue components)</li>
+      <li>Any shared dependencies with the host application</li>
+    </ul>
+
+    <h2>8. Testing</h2>
+    <p>While not strictly required, we strongly recommend:</p>
+    <ul>
+      <li>Unit tests for core functionality</li>
+      <li>Integration tests with Cryo Lab</li>
+      <li>Documented test coverage</li>
+      <li>CI/CD pipeline for automated testing</li>
+    </ul>
+
+    <h2>9. Prohibited Practices</h2>
+    <div class="error">
+      <p>The following will result in immediate package removal:</p>
+    </div>
+    <ul>
+      <li>Cryptocurrency miners or resource hijacking</li>
+      <li>Data collection without disclosure</li>
+      <li>Obfuscated code hiding malicious functionality</li>
+      <li>Packages that modify Cryo Lab core without consent</li>
+      <li>Name squatting or trademark infringement</li>
+      <li>Spam or duplicate packages</li>
+      <li>Packages with misleading descriptions</li>
+    </ul>
+
+    <h2>10. Review Process</h2>
+    <h3>10.1 Automated Checks</h3>
+    <p>All packages undergo automated validation:</p>
+    <ul>
+      <li>Package structure verification</li>
+      <li>Malware scanning</li>
+      <li>Dependency vulnerability scanning</li>
+      <li>License compatibility check</li>
+    </ul>
+
+    <h3>10.2 Manual Review</h3>
+    <p>Packages may be subject to manual review for:</p>
+    <ul>
+      <li>First-time publishers</li>
+      <li>Packages with native code</li>
+      <li>Packages requesting elevated permissions</li>
+      <li>Flagged or reported packages</li>
+    </ul>
+
+    <h2>11. Pre-Publish Checklist</h2>
+    <p>Before publishing, verify:</p>
+    <ul class="checklist">
+      <li>Package name follows naming convention</li>
+      <li>package.json contains all required fields</li>
+      <li>README.md is complete and accurate</li>
+      <li>LICENSE file is included</li>
+      <li>All code is tested and functional</li>
+      <li>No security vulnerabilities in dependencies</li>
+      <li>Version number is correct (semver)</li>
+      <li>CHANGELOG.md is updated</li>
+      <li>No sensitive data or credentials included</li>
+      <li>Build artifacts are included (if applicable)</li>
+    </ul>
+
+    <h2>12. Support & Community</h2>
+    <p>As a publisher, we encourage you to:</p>
+    <ul>
+      <li>Respond to user issues and questions</li>
+      <li>Accept and review pull requests</li>
+      <li>Maintain your packages regularly</li>
+      <li>Mark packages as deprecated when no longer maintained</li>
+      <li>Participate in the Cryo Lab community</li>
+    </ul>
+
+    <h2>13. Contact</h2>
+    <p>For questions about these guidelines or the publishing process, please visit our <a href="contact.html">contact page</a>.</p>
+
+    <footer>
+      &copy; 2024 Patrice Chevillat. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
